@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "CrmApp";
+}
+<body>
+    <div class="container">
+        <a href="/Home/AddEmployee" class="btn btn-primary pull-left" style="margin: 10px; border-radius: 11px;">Добавить сотрудника</a>
+        <a href="/Home/AddPosition" class="btn btn-primary pull-right" style="margin: 10px; border-radius: 11px;">Добавить сотрудника</a>
+        <table class="table table-bordered table-striped">
+            <tbody>
+                <tr style="background-color: darkgray">
+                    <td>#</td>
+                    <td>Должность</td>
+                    <td>Сотрудник</td>
+                    <td>Оклад</td>
+                    <td>Дата назначения</td>
+                    <td>Дата увольнения</td>
+                </tr>
+
+                @{
+                    foreach (var employee in ViewBag.Employees)
+                    {
+                        <tr>
+                            <td>@employee.EmployeeId</td>
+                            <td>@employee.PositionName</td>
+                            <td>@employee.SecondName @employee.FirstName</td>
+                            <td>@employee.Salary</td>
+                            <td>@employee.Hired</td>
+                            <td>@employee.Fired</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

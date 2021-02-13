@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "AddEmployee";
+}
+<div class="form-horizontal">
+    <h2>Новая должность</h2>
+    <hr>
+    <div class="form-group">
+        <div class="col-md-10">
+            <form method="post" action="">
+                <input type="text" name="SecondName" class="input-group-text" style="margin: 4px 8px 10px 15px" required />
+                <span class="label label-default">Фамилия</span>
+
+                <br />
+                <input type="text" name="FirstName" class="input-group-text" style="margin: 4px 8px 10px 15px" required />
+                <span class="label label-default">Имя</span>
+                <br />
+
+                <input type="number" name="Salary" class="input-group-text" style="margin: 4px 8px 10px 15px" required />
+                <span class="label label-default">Оклад</span>
+                <br />
+
+
+                <select name="PositionId" class="form-group-sm input-sm" style="margin-left: 16px; margin-bottom: 15px; margin-right: 10px; width: 18%" required>
+
+                    @{
+                        foreach (var position in @ViewBag.Positions)
+                        {
+                            <option value="@position.PositionId">@position.PositionName</option>
+                        }
+                    }
+                </select>
+                <span class="label label-default">Должность</span>
+                <br />
+
+
+                <div style="margin: 4px 8px 10px 15px; display: inline-block; width: 20%">
+                    <input type="datetime-local" class="form-control" name="Hired" required/>
+                </div>
+                <span class="label label-default">Дата назначения</span>
+                <br />
+
+                <div style="margin: 4px 8px 10px 15px; display: inline-block; width: 20%">
+                    <div class="input-group-text">
+                        <input type="datetime-local" class="form-control" name="Fired" />
+                    </div>
+                </div>
+                <span class="label label-default">Дата увольнения</span>
+                <br />
+
+
+                <div class="col-md-10">
+                    <a href="/Home/Index" class="btn pull-left btn-secondary" style="margin: 30px 5px 0px 0px; border-radius: 11px; background-color: darkgray; color: #fff;">Закрыть</a>
+                    <button type="submit" class="btn pull-left btn-primary" style="margin: 30px 0px 0px 5px; border-radius: 11px;">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
